@@ -264,26 +264,26 @@ public class Calculadora extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		// Operaciones
-			if(e.getSource() == botonSuma) {
-				if(reset) {
-					labelNumeros_2.setText("");
-					reset = false;
-				}
-				labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " + ");
-				valores.add(Double.parseDouble(labelNumeros.getText()));
-				labelNumeros.setText("0");
-			} else if (e.getSource() == botonIgual) {
-				valores.add(Double.parseDouble(labelNumeros.getText()));
-				Double resultado = 0.0;
-				for (int i = 0; i < valores.size(); i++) {
-					resultado += valores.get(i);
-					System.out.println(resultado);
-				}
-				String resultadoString = resultado + "";
-				labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " = ");
-				labelNumeros.setText(resultadoString);
-				reset = true;
+		if(e.getSource() == botonSuma) {
+			if(reset) {
+				labelNumeros_2.setText("");
+				reset = false;
 			}
+			labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " + ");
+			valores.add(Double.parseDouble(labelNumeros.getText()));
+			labelNumeros.setText("0");
+		} else if (e.getSource() == botonIgual) {
+			valores.add(Double.parseDouble(labelNumeros.getText()));
+			Double resultado = 0.0;
+			for (int i = 0; i < valores.size(); i++) {
+				resultado += valores.get(i);
+				System.out.println(resultado);
+			}
+			String resultadoString = resultado + "";
+			labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " = ");
+			labelNumeros.setText(resultadoString);
+			reset = true;
+		}
 		
 		
 		// Botones Números
