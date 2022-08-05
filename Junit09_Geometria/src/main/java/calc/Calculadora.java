@@ -4,11 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 
 public class Calculadora extends JFrame implements ActionListener{
 	
@@ -20,6 +23,14 @@ public class Calculadora extends JFrame implements ActionListener{
 	private JButton botonMasBarraMenos, botonComa, botonIgual, botonSuma, botonResta, botonMultiplicacion, botonDivision, botonRaiz;
 	private JButton botonPotencia, botonFraccion, botonDelete, botonC, botonCE, botonPorcentaje, botonMC, botonMR, botonMPlus;
 	private JButton botonMMenos, botonMS;
+	private JLabel labelNumeros;
+	private JLabel labelNumeros_2;
+	
+	private boolean reset = false;
+	
+	private double valorUno, valorDos;
+	
+	private ArrayList<Double> valores = new ArrayList<Double>();
 	
 	public Calculadora() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -231,11 +242,69 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonMS.setFont(new Font("Tahoma", Font.BOLD, 15));
 		botonMS.setBounds(330, 192, 70, 50);
 		contentPane.add(botonMS);
+		
+		labelNumeros = new JLabel("0", SwingConstants.RIGHT);
+		labelNumeros.setFont(new Font("Tahoma", Font.BOLD, 30));
+		labelNumeros.setBounds(10, 100, 430, 37);
+		contentPane.add(labelNumeros);
+		
+		labelNumeros_2 = new JLabel("", SwingConstants.RIGHT);
+		labelNumeros_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelNumeros_2.setBounds(10, 53, 430, 37);
+		contentPane.add(labelNumeros_2);
+		
+		boton1.addActionListener(this);
+		boton2.addActionListener(this);
+		boton3.addActionListener(this);
+		botonSuma.addActionListener(this);
+		botonIgual.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
+		// Operaciones
+			if(e.getSource() == botonSuma) {
+				if(reset) {
+					labelNumeros_2.setText("");
+					reset = false;
+				}
+				labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " + ");
+				valores.add(Double.parseDouble(labelNumeros.getText()));
+				labelNumeros.setText("0");
+			} else if (e.getSource() == botonIgual) {
+				valores.add(Double.parseDouble(labelNumeros.getText()));
+				Double resultado = 0.0;
+				for (int i = 0; i < valores.size(); i++) {
+					resultado += valores.get(i);
+					System.out.println(resultado);
+				}
+				String resultadoString = resultado + "";
+				labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " = ");
+				labelNumeros.setText(resultadoString);
+				reset = true;
+			}
+		
+		
+		// Botones Números
+		if(e.getSource() == boton1) {
+			if(labelNumeros.getText().equals("0")) {
+				labelNumeros.setText("1");
+			} else {
+				labelNumeros.setText(labelNumeros.getText()+"1");
+			}
+		} else if (e.getSource() == boton2) {
+			if(labelNumeros.getText().equals("0")) {
+				labelNumeros.setText("2");
+			} else {
+				labelNumeros.setText(labelNumeros.getText()+"2");
+			}
+		} else if (e.getSource() == boton3) {
+			if(labelNumeros.getText().equals("0")) {
+				labelNumeros.setText("3");
+			} else {
+				labelNumeros.setText(labelNumeros.getText()+"3");
+			}
+		}
 	}
 }

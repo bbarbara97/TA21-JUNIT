@@ -13,6 +13,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CalculadoraMainApp extends JFrame {
+	public CalculadoraMainApp() {
+	}
 
 	/**
 	 * Método main
