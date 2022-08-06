@@ -28,11 +28,11 @@ public class Calculadora extends JFrame implements ActionListener{
 	private String operador;
 	private boolean reset = false;
 
-	private double valorUno, valorDos;
+	private double valorUno = 1000000, valorDos, resultado = 0.0;
 
 	private String resultadoString = "";
 
-	private ArrayList<Double> valores = new ArrayList<Double>();
+	//private ArrayList<Double> valores = new ArrayList<Double>();
 
 	public Calculadora() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -219,29 +219,28 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonIgual = new JButton("=");
 		botonIgual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				valores.add(Double.parseDouble(labelNumeros.getText()));
-				Double resultado = 0.0;
+				valorDos = Double.parseDouble(labelNumeros.getText());
 				switch(operador) {
 				case "+":
-					for (int i = 0; i < valores.size(); i++) {
-						resultado += valores.get(i);
-						System.out.println(resultado);
-					}
+					resultado = valorUno + valorDos;
+					valorUno = resultado;
 					break;
 				case "-":
-					for (int i = 0; i < valores.size(); i++) {
-						resultado -= valores.get(i);
-						System.out.println("valores: " + valores.get(i));
-						System.out.println(resultado);
-						
-					}
+					resultado = valorUno - valorDos;
+					valorUno = resultado;
+					break;
+				case "*":
+					resultado = valorUno * valorDos;
+					valorUno = resultado;
+					break;
+				case "/":
+					resultado = valorUno / valorDos;
+					valorUno = resultado;
 					break;
 
 				}
-				
-				int pos = valores.size();
 				resultadoString = resultado + "";
-				labelNumeros_2.setText(labelNumeros_2.getText() + valores.get(pos-1) + " = ");
+				labelNumeros_2.setText(labelNumeros_2.getText() + valorDos + " = ");
 				labelNumeros.setText(resultadoString);
 				reset = true;
 			}
@@ -263,8 +262,9 @@ public class Calculadora extends JFrame implements ActionListener{
 				} else {
 					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " + ");
 				}
-				valores.add(Double.parseDouble(labelNumeros.getText()));
-				labelNumeros.setText("0");
+				System.out.println(valorUno + " " + valorDos);
+				if(valorUno == 1000000) valorUno = Double.parseDouble(labelNumeros.getText());
+					labelNumeros.setText("0");
 			}
 		});
 		botonSuma.setOpaque(true);
@@ -284,7 +284,7 @@ public class Calculadora extends JFrame implements ActionListener{
 				} else {
 					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " - ");
 				}
-				valores.add(Double.parseDouble(labelNumeros.getText()));
+				if(valorUno == 1000000) valorUno = Double.parseDouble(labelNumeros.getText());
 				labelNumeros.setText("0");
 			}
 		});
@@ -295,6 +295,20 @@ public class Calculadora extends JFrame implements ActionListener{
 		contentPane.add(botonResta);
 
 		botonMultiplicacion = new JButton("X");
+		botonMultiplicacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				operador = "*";
+				if(reset) {
+					labelNumeros_2.setText(labelNumeros.getText() + " x ");
+					labelNumeros.setText("0");
+					reset = false;
+				} else {
+					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " x ");
+				}
+				if(valorUno == 1000000) valorUno = Double.parseDouble(labelNumeros.getText());
+				labelNumeros.setText("0");
+			}
+		});
 		botonMultiplicacion.setOpaque(true);
 		botonMultiplicacion.setFont(new Font("Tahoma", Font.BOLD, 18));
 		botonMultiplicacion.setBackground(Color.LIGHT_GRAY);
@@ -302,6 +316,20 @@ public class Calculadora extends JFrame implements ActionListener{
 		contentPane.add(botonMultiplicacion);
 
 		botonDivision = new JButton("/");
+		botonDivision.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				operador = "/";
+				if(reset) {
+					labelNumeros_2.setText(labelNumeros.getText() + " / ");
+					labelNumeros.setText("0");
+					reset = false;
+				} else {
+					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " / ");
+				}
+				if(valorUno == 1000000) valorUno = Double.parseDouble(labelNumeros.getText());
+				labelNumeros.setText("0");
+			}
+		});
 		botonDivision.setOpaque(true);
 		botonDivision.setFont(new Font("Tahoma", Font.BOLD, 18));
 		botonDivision.setBackground(Color.LIGHT_GRAY);
@@ -309,6 +337,17 @@ public class Calculadora extends JFrame implements ActionListener{
 		contentPane.add(botonDivision);
 
 		botonRaiz = new JButton("√");
+		botonRaiz.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				valorUno = Double.parseDouble(labelNumeros.getText());
+				Math.sqrt(valorUno);
+				resultadoString = valorUno + "";
+				labelNumeros_2.setText(labelNumeros.getText());
+				labelNumeros_2.setText("√(" + labelNumeros_2.getText() + ") ");
+				labelNumeros.setText(resultadoString);
+				reset = true;
+			}
+		});
 		botonRaiz.setOpaque(true);
 		botonRaiz.setFont(new Font("Tahoma", Font.BOLD, 18));
 		botonRaiz.setBackground(Color.LIGHT_GRAY);
@@ -316,6 +355,17 @@ public class Calculadora extends JFrame implements ActionListener{
 		contentPane.add(botonRaiz);
 
 		botonPotencia = new JButton("x^2");
+		botonPotencia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				valorUno = Double.parseDouble(labelNumeros.getText());
+				valorUno *= valorUno;
+				resultadoString = valorUno + "";
+				labelNumeros_2.setText(labelNumeros.getText());
+				labelNumeros_2.setText("sqr(" + labelNumeros_2.getText() + ") ");
+				labelNumeros.setText(resultadoString);
+				reset = true;
+			}
+		});
 		botonPotencia.setOpaque(true);
 		botonPotencia.setFont(new Font("Tahoma", Font.BOLD, 18));
 		botonPotencia.setBackground(Color.LIGHT_GRAY);
@@ -349,6 +399,14 @@ public class Calculadora extends JFrame implements ActionListener{
 		contentPane.add(botonC);
 
 		botonCE = new JButton("CE");
+		botonCE.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				labelNumeros.setText("");
+				labelNumeros_2.setText("");
+				valorUno = 0;
+				valorDos = 0;
+			}
+		});
 		botonCE.setOpaque(true);
 		botonCE.setFont(new Font("Tahoma", Font.BOLD, 18));
 		botonCE.setBackground(Color.LIGHT_GRAY);
