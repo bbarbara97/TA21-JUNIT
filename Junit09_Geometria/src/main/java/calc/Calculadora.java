@@ -361,7 +361,7 @@ public class Calculadora extends JFrame implements ActionListener{
 				valorUno *= valorUno;
 				resultadoString = valorUno + "";
 				labelNumeros_2.setText(labelNumeros.getText());
-				labelNumeros_2.setText("sqr(" + labelNumeros_2.getText() + ") ");
+				labelNumeros_2.setText("(" + labelNumeros_2.getText() + ")^2 ");
 				labelNumeros.setText(resultadoString);
 				reset = true;
 			}
