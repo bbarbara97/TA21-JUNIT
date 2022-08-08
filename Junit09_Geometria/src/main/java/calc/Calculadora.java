@@ -267,27 +267,9 @@ public class Calculadora extends JFrame implements ActionListener{
 		
 		// Operaciones
 			if(e.getSource() == botonSuma) {
-				if(reset) {
-					labelNumeros_2.setText(labelNumeros.getText() + " + ");
-					labelNumeros.setText("0");
-					reset = false;
-				} else {
-					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " + ");
-				}
-				valores.add(Double.parseDouble(labelNumeros.getText()));
-				labelNumeros.setText("0");
+				suma();
 			} else if (e.getSource() == botonIgual) {
-				valores.add(Double.parseDouble(labelNumeros.getText()));
-				Double resultado = 0.0;
-				for (int i = 0; i < valores.size(); i++) {
-					resultado += valores.get(i);
-					System.out.println(resultado);
-				}
-				int pos = valores.size();
-				resultadoString = resultado + "";
-				labelNumeros_2.setText(labelNumeros_2.getText() + valores.get(pos-1) + " = ");
-				labelNumeros.setText(resultadoString);
-				reset = true;
+				igual();
 			}
 		
 		// Botones Números
@@ -310,5 +292,31 @@ public class Calculadora extends JFrame implements ActionListener{
 				labelNumeros.setText(labelNumeros.getText()+"3");
 			}
 		}
+	}
+	
+	public void suma() {
+		if(reset) {
+			labelNumeros_2.setText(labelNumeros.getText() + " + ");
+			labelNumeros.setText("0");
+			reset = false;
+		} else {
+			labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " + ");
+		}
+		valores.add(Double.parseDouble(labelNumeros.getText()));
+		labelNumeros.setText("0");
+	}
+	
+	public void igual() {
+		valores.add(Double.parseDouble(labelNumeros.getText()));
+		Double resultado = 0.0;
+		for (int i = 0; i < valores.size(); i++) {
+			resultado += valores.get(i);
+			System.out.println(resultado);
+		}
+		int pos = valores.size();
+		resultadoString = resultado + "";
+		labelNumeros_2.setText(labelNumeros_2.getText() + valores.get(pos-1) + " = ");
+		labelNumeros.setText(resultadoString);
+		reset = true;
 	}
 }
