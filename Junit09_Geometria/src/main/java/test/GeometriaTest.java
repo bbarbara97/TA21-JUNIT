@@ -103,4 +103,59 @@ class GeometriaTest {
 		String result = geometria.figura(a);
 		assertEquals(b, result);
 	}
+	
+	@Test
+	public void testConstructor1() {
+		int a = 5;
+		String b = geometria.figura(a);
+		Geometria geometria2 = new Geometria(a);
+		
+		assertEquals(a, geometria2.getId());
+		assertEquals(b, geometria2.getNom());		
+	}
+	
+	@Test
+	public void testConstructor2() {
+		int a = 9;
+		String b = "Default";
+		assertEquals(a, geometria.getId());
+		assertEquals(b, geometria.getNom());
+	}	
+	
+	@Test
+	public void testGetSetId() {
+		int a = 10;
+		geometria.setId(a);
+		assertEquals(a, geometria.getId());
+	}
+	
+	@Test
+	public void testGetSetNom() {
+		String b = "Custom";
+		geometria.setNom(b);
+		assertEquals(b, geometria.getNom());
+	}
+	
+	@Test
+	public void testGetSetArea() {
+		int a = geometria.areacuadrado(5);
+		geometria.setArea(a);
+		assertEquals(a, geometria.getArea());
+	}
+	
+	@Test
+	public void testToString() {
+		int a = 5;
+		String b = "Custom";
+		double c = 25;
+		String d = "Geometria [id=" + a + ", nom=" + b + ", area=" + c + "]";
+		
+		geometria.setId(a);
+		geometria.setNom(b);
+		geometria.setArea(c);
+		
+		String result = geometria.toString();
+		
+		assertEquals(d, result);
+	}
 }
