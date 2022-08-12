@@ -49,11 +49,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton0 = new JButton("0");
 		boton0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("0");
-				} else {
-					labelNumeros.setText(labelNumeros.getText() + "0");
-				}
+				cero();
 			}
 		});
 		boton0.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -65,11 +61,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton1 = new JButton("1");
 		boton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("1");
-				} else {
-					labelNumeros.setText(labelNumeros.getText()+"1");
-				}
+				uno();
 			}
 		});
 		boton1.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -81,11 +73,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton2 = new JButton("2");
 		boton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("2");
-				} else {
-					labelNumeros.setText(labelNumeros.getText()+"2");
-				}
+				dos();
 			}
 		});
 		boton2.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -97,11 +85,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton3 = new JButton("3");
 		boton3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("3");
-				} else {
-					labelNumeros.setText(labelNumeros.getText()+"3");
-				}
+				tres();
 			}
 		});
 		boton3.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -113,11 +97,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton4 = new JButton("4");
 		boton4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("4");
-				} else {
-					labelNumeros.setText(labelNumeros.getText() + "4");
-				}
+				cuatro();
 			}
 		});
 		boton4.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -129,11 +109,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton5 = new JButton("5");
 		boton5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("5");
-				} else {
-					labelNumeros.setText(labelNumeros.getText() + "5");
-				}
+				cinco();
 			}
 		});
 		boton5.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -145,11 +121,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton6 = new JButton("6");
 		boton6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("6");
-				} else {
-					labelNumeros.setText(labelNumeros.getText() + "6");
-				}
+				seis();
 			}
 		});
 		boton6.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -161,11 +133,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton7 = new JButton("7");
 		boton7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("7");
-				} else {
-					labelNumeros.setText(labelNumeros.getText() + "7");
-				}
+				siete();
 			}
 		});
 		boton7.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -177,11 +145,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton8 = new JButton("8");
 		boton8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("8");
-				} else {
-					labelNumeros.setText(labelNumeros.getText() + "8");
-				}
+				ocho();
 			}
 		});
 		boton8.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -193,11 +157,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		boton9 = new JButton("9");
 		boton9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().equals("0")) {
-					labelNumeros.setText("9");
-				} else {
-					labelNumeros.setText(labelNumeros.getText() + "9");
-				}
+				nueve();
 			}
 		});
 		boton9.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -209,11 +169,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonMasBarraMenos = new JButton("+/-");
 		botonMasBarraMenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().substring(0, 1).equals("-")) {
-					labelNumeros.setText(labelNumeros.getText().substring(1));
-				} else {
-					labelNumeros.setText("-" + labelNumeros.getText());
-				}
+				cambiarvalor();
 			}
 		});
 		botonMasBarraMenos.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -225,9 +181,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonComa = new JButton(",");
 		botonComa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(labelNumeros.getText().indexOf('.') == -1) {
-					labelNumeros.setText(labelNumeros.getText() + ".");
-				}
+				coma();
 			}
 		});
 		botonComa.setOpaque(true);
@@ -239,33 +193,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonIgual = new JButton("=");
 		botonIgual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				valorDos = Double.parseDouble(labelNumeros.getText());
-				switch(operador) {
-				case "+":
-					resultado = valorUno + valorDos;
-					valorUno = resultado;
-					break;
-				case "-":
-					resultado = valorUno - valorDos;
-					valorUno = resultado;
-					break;
-				case "*":
-					resultado = valorUno * valorDos;
-					valorUno = resultado;
-					break;
-				case "/":
-					resultado = valorUno / valorDos;
-					valorUno = resultado;
-					break;
-				case "":
-					resultado = valorDos;
-					valorUno = resultado;
-
-				}
-				resultadoString = resultado + "";
-				labelNumeros_2.setText(labelNumeros_2.getText() + valorDos + " = ");
-				labelNumeros.setText(resultadoString);
-				reset = true;
+				igual();
 			}
 		});
 		botonIgual.setOpaque(true);
@@ -277,17 +205,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonSuma = new JButton("+");
 		botonSuma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				operador = "+";
-				if(reset) {
-					labelNumeros_2.setText(labelNumeros.getText() + " + ");
-					labelNumeros.setText("0");
-					reset = false;
-				} else {
-					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " + ");
-				}
-				System.out.println(valorUno + " " + valorDos);
-				if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
-				labelNumeros.setText("0");
+				suma();
 			}
 		});
 		botonSuma.setOpaque(true);
@@ -299,16 +217,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonResta = new JButton("-");
 		botonResta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				operador = "-";
-				if(reset) {
-					labelNumeros_2.setText(labelNumeros.getText() + " - ");
-					labelNumeros.setText("0");
-					reset = false;
-				} else {
-					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " - ");
-				}
-				if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
-				labelNumeros.setText("0");
+				resta();
 			}
 		});
 		botonResta.setOpaque(true);
@@ -320,16 +229,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonMultiplicacion = new JButton("X");
 		botonMultiplicacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				operador = "*";
-				if(reset) {
-					labelNumeros_2.setText(labelNumeros.getText() + " x ");
-					labelNumeros.setText("0");
-					reset = false;
-				} else {
-					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " x ");
-				}
-				if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
-				labelNumeros.setText("0");
+				multiplica();
 			}
 		});
 		botonMultiplicacion.setOpaque(true);
@@ -341,16 +241,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonDivision = new JButton("/");
 		botonDivision.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				operador = "/";
-				if(reset) {
-					labelNumeros_2.setText(labelNumeros.getText() + " / ");
-					labelNumeros.setText("0");
-					reset = false;
-				} else {
-					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " / ");
-				}
-				if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
-				labelNumeros.setText("0");
+				divide();
 			}
 		});
 		botonDivision.setOpaque(true);
@@ -362,12 +253,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonRaiz = new JButton("√");
 		botonRaiz.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				valorUno = Double.parseDouble(labelNumeros.getText());
-				valorUno = Math.sqrt(valorUno);
-				resultadoString = valorUno + "";
-				labelNumeros_2.setText("√(" + labelNumeros_2.getText() + ") ");
-				labelNumeros.setText(resultadoString);
-				reset = true;
+				raiz();
 			}
 		});
 		botonRaiz.setOpaque(true);
@@ -379,13 +265,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonPotencia = new JButton("x^2");
 		botonPotencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				valorUno = Double.parseDouble(labelNumeros.getText());
-				valorUno *= valorUno;
-				resultadoString = valorUno + "";
-				labelNumeros_2.setText(labelNumeros.getText());
-				labelNumeros_2.setText("(" + labelNumeros_2.getText() + ")^2 ");
-				labelNumeros.setText(resultadoString);
-				reset = true;
+				potencia();
 			}
 		});
 		botonPotencia.setOpaque(true);
@@ -397,13 +277,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonFraccion = new JButton("1/x");
 		botonFraccion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				valorUno = Double.parseDouble(labelNumeros.getText());
-				valorTemporal = valorUno;
-				valorUno = 1 / valorUno;
-				resultadoString = valorUno + "";
-				labelNumeros_2.setText("1/" + valorTemporal + " ");
-				labelNumeros.setText(resultadoString);
-				reset = true;
+				fraccion();
 			}
 		});
 		botonFraccion.setOpaque(true);
@@ -415,10 +289,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonDelete = new JButton("<-");
 		botonDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int lengthText = labelNumeros.getText().length();
-				if(labelNumeros.getText() != "0") {
-					labelNumeros.setText(labelNumeros.getText().substring(0, lengthText - 1));
-				}
+				delete();
 			}
 		});
 		botonDelete.setOpaque(true);
@@ -430,7 +301,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonC= new JButton("C");
 		botonC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				labelNumeros.setText("");
+				C();
 			}
 		});
 		botonC.setOpaque(true);
@@ -442,10 +313,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonCE = new JButton("CE");
 		botonCE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				labelNumeros.setText("");
-				labelNumeros_2.setText("");
-				valorUno = 0;
-				valorDos = 0;
+				CE();
 			}
 		});
 		botonCE.setOpaque(true);
@@ -457,19 +325,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonPorcentaje = new JButton("%");
 		botonPorcentaje.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				operador = "*";
-				valorUno = Double.parseDouble(labelNumeros.getText());
-				valorUno = valorUno / 100.0;
-				System.out.println(valorUno);
-				if(reset) {
-					labelNumeros_2.setText(labelNumeros.getText() + "% x ");
-					labelNumeros.setText("0");
-					reset = false;
-				} else {
-					labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " x ");
-				}
-				if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
-				labelNumeros.setText("0");
+				porcentaje();
 			}
 		});
 		botonPorcentaje.setOpaque(true);
@@ -481,7 +337,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonMC = new JButton("MC");
 		botonMC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				memoria = 0;
+				memoria();
 			}
 		});
 		botonMC.setOpaque(false);
@@ -493,7 +349,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonMR = new JButton("MR");
 		botonMR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				labelNumeros.setText("" + memoria);
+				mr();
 			}
 		});
 		botonMR.setOpaque(false);
@@ -505,7 +361,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonMPlus = new JButton("M+");
 		botonMPlus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				memoria += Double.parseDouble(labelNumeros.getText());
+				mplus();
 			}
 		});
 		botonMPlus.setOpaque(false);
@@ -517,7 +373,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonMMenos = new JButton("M-");
 		botonMMenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				memoria -= Double.parseDouble(labelNumeros.getText());
+				mmenos();
 			}
 		});
 		botonMMenos.setOpaque(false);
@@ -529,7 +385,7 @@ public class Calculadora extends JFrame implements ActionListener{
 		botonMS = new JButton("MS");
 		botonMS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				memoria = Double.parseDouble(labelNumeros.getText());
+				ms();
 			}
 		});
 		botonMS.setOpaque(false);
@@ -548,7 +404,267 @@ public class Calculadora extends JFrame implements ActionListener{
 		labelNumeros_2.setBounds(10, 53, 430, 37);
 		contentPane.add(labelNumeros_2);
 	}
+	
+	public void igual() {
+		valorDos = Double.parseDouble(labelNumeros.getText());
+		switch(operador) {
+		case "+":
+			resultado = valorUno + valorDos;
+			valorUno = resultado;
+			break;
+		case "-":
+			resultado = valorUno - valorDos;
+			valorUno = resultado;
+			break;
+		case "*":
+			resultado = valorUno * valorDos;
+			valorUno = resultado;
+			break;
+		case "/":
+			resultado = valorUno / valorDos;
+			valorUno = resultado;
+			break;
+		case "":
+			resultado = valorDos;
+			valorUno = resultado;
 
+		}
+		resultadoString = resultado + "";
+		labelNumeros_2.setText(labelNumeros_2.getText() + valorDos + " = ");
+		labelNumeros.setText(resultadoString);
+		reset = true;
+	}
+
+	public void suma() {
+		operador = "+";
+		if(reset) {
+			labelNumeros_2.setText(labelNumeros.getText() + " + ");
+			labelNumeros.setText("0");
+			reset = false;
+		} else {
+			labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " + ");
+		}
+		System.out.println(valorUno + " " + valorDos);
+		if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
+		labelNumeros.setText("0");
+	}
+	
+	public void resta() {
+		operador = "-";
+		if(reset) {
+			labelNumeros_2.setText(labelNumeros.getText() + " - ");
+			labelNumeros.setText("0");
+			reset = false;
+		} else {
+			labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " - ");
+		}
+		if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
+		labelNumeros.setText("0");
+	}
+	
+	public void multiplica() {
+		operador = "*";
+		if(reset) {
+			labelNumeros_2.setText(labelNumeros.getText() + " x ");
+			labelNumeros.setText("0");
+			reset = false;
+		} else {
+			labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " x ");
+		}
+		if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
+		labelNumeros.setText("0");
+	}
+	
+	public void divide() {
+		operador = "/";
+		if(reset) {
+			labelNumeros_2.setText(labelNumeros.getText() + " / ");
+			labelNumeros.setText("0");
+			reset = false;
+		} else {
+			labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " / ");
+		}
+		if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
+		labelNumeros.setText("0");
+	}
+	
+	public void raiz() {
+		valorUno = Double.parseDouble(labelNumeros.getText());
+		valorUno = Math.sqrt(valorUno);
+		resultadoString = valorUno + "";
+		labelNumeros_2.setText("√(" + labelNumeros_2.getText() + ") ");
+		labelNumeros.setText(resultadoString);
+		reset = true;
+	}
+	
+	public void potencia() {
+		valorUno = Double.parseDouble(labelNumeros.getText());
+		valorUno *= valorUno;
+		resultadoString = valorUno + "";
+		labelNumeros_2.setText(labelNumeros.getText());
+		labelNumeros_2.setText("(" + labelNumeros_2.getText() + ")^2 ");
+		labelNumeros.setText(resultadoString);
+		reset = true;
+	}
+	
+	public void fraccion() {
+		valorUno = Double.parseDouble(labelNumeros.getText());
+		valorTemporal = valorUno;
+		valorUno = 1 / valorUno;
+		resultadoString = valorUno + "";
+		labelNumeros_2.setText("1/" + valorTemporal + " ");
+		labelNumeros.setText(resultadoString);
+		reset = true;
+	}
+	
+	public void delete() {
+		int lengthText = labelNumeros.getText().length();
+		if(labelNumeros.getText() != "0") {
+			labelNumeros.setText(labelNumeros.getText().substring(0, lengthText - 1));
+		}
+	}
+	
+	public void C() {
+		labelNumeros.setText("");
+	}
+	
+	public void CE() {
+		labelNumeros.setText("");
+		labelNumeros_2.setText("");
+		valorUno = 0;
+		valorDos = 0;
+	}
+	
+	public void porcentaje() {
+		operador = "*";
+		valorUno = Double.parseDouble(labelNumeros.getText());
+		valorUno = valorUno / 100.0;
+		System.out.println(valorUno);
+		if(reset) {
+			labelNumeros_2.setText(labelNumeros.getText() + "% x ");
+			labelNumeros.setText("0");
+			reset = false;
+		} else {
+			labelNumeros_2.setText(labelNumeros_2.getText() + labelNumeros.getText() + " x ");
+		}
+		if(valorUno == 0) valorUno = Double.parseDouble(labelNumeros.getText());
+		labelNumeros.setText("0");
+	}
+	
+	public void memoria() {
+		memoria = 0;
+	}
+	
+	public void mr() {
+		labelNumeros.setText("" + memoria);
+	}
+	
+	public void mplus() {
+		memoria += Double.parseDouble(labelNumeros.getText());
+	}
+	
+	public void mmenos() {
+		memoria -= Double.parseDouble(labelNumeros.getText());
+	}
+	
+	public void ms() {
+		memoria = Double.parseDouble(labelNumeros.getText());
+	}
+	
+	public void coma() {
+		if(labelNumeros.getText().indexOf('.') == -1) {
+			labelNumeros.setText(labelNumeros.getText() + ".");
+		}
+	}
+	
+	public void cambiarvalor() {
+		if(labelNumeros.getText().substring(0, 1).equals("-")) {
+			labelNumeros.setText(labelNumeros.getText().substring(1));
+		} else {
+			labelNumeros.setText("-" + labelNumeros.getText());
+		}
+	}
+	
+	public void nueve() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("9");
+		} else {
+			labelNumeros.setText(labelNumeros.getText() + "9");
+		}
+	}
+	
+	public void ocho() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("8");
+		} else {
+			labelNumeros.setText(labelNumeros.getText() + "8");
+		}
+	}
+	
+	public void siete() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("7");
+		} else {
+			labelNumeros.setText(labelNumeros.getText() + "7");
+		}
+	}
+	
+	public void seis() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("6");
+		} else {
+			labelNumeros.setText(labelNumeros.getText() + "6");
+		}
+	}
+	
+	public void cinco() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("5");
+		} else {
+			labelNumeros.setText(labelNumeros.getText() + "5");
+		}
+	}
+	
+	public void cuatro() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("4");
+		} else {
+			labelNumeros.setText(labelNumeros.getText() + "4");
+		}
+	}
+	
+	public void tres() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("3");
+		} else {
+			labelNumeros.setText(labelNumeros.getText()+"3");
+		}
+	}
+	
+	public void dos() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("2");
+		} else {
+			labelNumeros.setText(labelNumeros.getText()+"2");
+		}
+	}
+	
+	public void uno() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("1");
+		} else {
+			labelNumeros.setText(labelNumeros.getText()+"1");
+		}
+	}
+	
+	public void cero() {
+		if(labelNumeros.getText().equals("0")) {
+			labelNumeros.setText("0");
+		} else {
+			labelNumeros.setText(labelNumeros.getText() + "0");
+		}
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
