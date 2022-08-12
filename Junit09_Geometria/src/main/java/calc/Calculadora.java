@@ -13,6 +13,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+/**
+ * 
+ * No podemos realizar test unitarios a los métodos void sin argumentos
+ *
+ */
+
 public class Calculadora extends JFrame implements ActionListener{
 
 	// Content panel
